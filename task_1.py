@@ -47,6 +47,7 @@ class LinkedList:
                     self.tail = node_prev
                 else:
                     node_prev.next = node.next
+                if all is False:
                     break
 
             node_prev = node
