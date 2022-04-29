@@ -4,6 +4,7 @@ class Node:
         self.value = v
         self.next = None
 
+
 class LinkedList:
 
     def __init__(self):
@@ -70,7 +71,18 @@ class LinkedList:
         while node is not None:
             index += 1
             node = node.next
-        return index # здесь будет ваш код
+        return index
 
     def insert(self, afterNode, newNode):
-        pass # здесь будет ваш код
+        node = self.head
+        node_next = node.next
+        new = Node(newNode)
+        if afterNode is None:
+            self.head = new
+            new.next = node
+            return None
+        while node.value != afterNode:
+            node = node.next
+            node_next = node.next
+        node.next = new
+        new.next = node_next
