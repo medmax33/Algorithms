@@ -22,4 +22,5 @@ print()
 # s_list.print_all_nodes()
 
 print(s_list.find_all(321))
+print(s_list.len())
 # s_list.print_all_nodes()

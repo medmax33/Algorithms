@@ -65,7 +65,12 @@ class LinkedList:
         self.tail = None
 
     def len(self):
-        return 0 # здесь будет ваш код
+        index = 0
+        node = self.head
+        while node is not None:
+            index += 1
+            node = node.next
+        return index # здесь будет ваш код
 
     def insert(self, afterNode, newNode):
         pass # здесь будет ваш код
