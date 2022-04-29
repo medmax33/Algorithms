@@ -1,7 +1,7 @@
 import unittest
 import random
 from task_1 import Node, LinkedList
-from
+from task_1_8 import sum_if_equal_length
 
 
 class MyTests(unittest.TestCase):
@@ -113,6 +113,12 @@ class MyTests(unittest.TestCase):
         self.assertTrue(s_list.len() > 100)
 
     def test_summ(self):
+        a = LinkedList()
+        b = LinkedList()
+        for _ in range(5):
+            a.add_in_tail(Node(_))
+            b.add_in_tail(Node(_ + 10))
+        self.assertEqual(sum_if_equal_length(a, b), [10, 12, 14, 16, 18])
 
 
 

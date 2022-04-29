@@ -8,7 +8,7 @@ def sum_if_equal_length(LinkedList_1, LinkedList_2):
         a = LinkedList_1.head
         b = LinkedList_2.head
         for _ in range(n):
-            sum_array.append(a + b)
+            sum_array.append(a.value + b.value)
             a = a.next
             b = b.next
         return sum_array
