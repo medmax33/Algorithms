@@ -1,6 +1,7 @@
 import unittest
 import random
 from task_1 import Node, LinkedList
+from
 
 
 class MyTests(unittest.TestCase):
@@ -110,6 +111,9 @@ class MyTests(unittest.TestCase):
             s_list.add_in_tail(Node(random.randint(1, 20)))
         s_list.insert(13, 5)
         self.assertTrue(s_list.len() > 100)
+
+    def test_summ(self):
+
 
 
 if __name__ == '__main__':
