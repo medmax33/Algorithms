@@ -55,7 +55,9 @@ class LinkedList:
         return None
 
     def clean(self):
-        pass # здесь будет ваш код
+        self.head = None
+        self.tail = None
+        return None
 
     def len(self):
         return 0 # здесь будет ваш код

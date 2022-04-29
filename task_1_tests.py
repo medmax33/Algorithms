@@ -17,5 +17,9 @@ s_list.add_in_tail(Node(55))
 
 s_list.print_all_nodes()
 print()
-s_list.delete(55, True)
+
+# s_list.delete(55, True)
+# s_list.print_all_nodes()
+
+s_list.clean()
 s_list.print_all_nodes()
