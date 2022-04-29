@@ -21,5 +21,5 @@ print()
 # s_list.delete(55, True)
 # s_list.print_all_nodes()
 
-s_list.clean()
-s_list.print_all_nodes()
+print(s_list.find_all(321))
+# s_list.print_all_nodes()

@@ -19,7 +19,7 @@ class LinkedList:
 
     def print_all_nodes(self):
         node = self.head
-        while node != None:
+        while node is not None:
             print(node.value)
             node = node.next
 
@@ -29,10 +29,17 @@ class LinkedList:
             if node.value == val:
                 return node
             node = node.next
-        return None
 
     def find_all(self, val):
-        return [] # здесь будет ваш код
+        node = self.head
+        find_all_array = []
+
+        while node is not None:
+            if node.value == val:
+                find_all_array.append(node.value)
+            node = node.next
+
+        return find_all_array
 
     def delete(self, val, all=False):
         node = self.head
@@ -52,12 +59,10 @@ class LinkedList:
 
             node_prev = node
             node = node.next
-        return None
 
     def clean(self):
         self.head = None
         self.tail = None
-        return None
 
     def len(self):
         return 0 # здесь будет ваш код
