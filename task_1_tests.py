@@ -73,40 +73,40 @@ class MyTests(unittest.TestCase):
     # seria of 100 element tests
     def test_100_delete(self):
         s_list = LinkedList()
-        for i in range(100):
+        for _ in range(100):
             s_list.add_in_tail(Node(random.randint(1, 20)))
         s_list.delete(1, True)
         self.assertTrue(s_list.len() < 100)
 
     def test_100_clean(self):
         s_list = LinkedList()
-        for i in range(100):
+        for _ in range(100):
             s_list.add_in_tail(Node(random.randint(1, 20)))
         s_list.clean()
         self.assertEqual(s_list.len(), 0)
 
     def test_100_find_all(self):
         s_list = LinkedList()
-        for i in range(100):
+        for _ in range(100):
             s_list.add_in_tail(Node(random.randint(1, 20)))
         self.assertIsNotNone(s_list.find_all(13))
 
     def test_100_len(self):
         s_list = LinkedList()
-        for i in range(100):
+        for _ in range(100):
             s_list.add_in_tail(Node(random.randint(1, 20)))
         self.assertEqual(s_list.len(), 100)
 
     def test_100_insert_head(self):
         s_list = LinkedList()
-        for i in range(100):
+        for _ in range(100):
             s_list.add_in_tail(Node(random.randint(1, 20)))
         s_list.insert(None, 5)
         self.assertEqual(s_list.len(), 101)
 
     def test_100_insert_body(self):
         s_list = LinkedList()
-        for i in range(100):
+        for _ in range(100):
             s_list.add_in_tail(Node(random.randint(1, 20)))
         s_list.insert(13, 5)
         self.assertTrue(s_list.len() > 100)
