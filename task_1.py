@@ -37,7 +37,7 @@ class LinkedList:
 
         while node is not None:
             if node.value == val:
-                find_all_array.append(node.value)
+                find_all_array.append(node)
             node = node.next
 
         return find_all_array
