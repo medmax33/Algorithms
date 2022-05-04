@@ -50,11 +50,10 @@ class LinkedList:
             if node.value == val:
                 if node == self.head:
                     self.head = node.next
-                elif node == self.tail:
-                    node_prev.next = None
-                    self.tail = node_prev
                 else:
                     node_prev.next = node.next
+                    node = node.next
+                    continue
                 if all is False:
                     break
 
