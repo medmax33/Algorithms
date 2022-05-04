@@ -53,12 +53,11 @@ class LinkedList:
                 else:
                     node_prev.next = node.next
                     node = node.next
-                    continue
                 if all is False:
                     break
-
-            node_prev = node
-            node = node.next
+            else:
+                node_prev = node
+                node = node.next
 
     def clean(self):
         self.head = None
