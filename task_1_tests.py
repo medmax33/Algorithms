@@ -39,7 +39,10 @@ class MyTests(unittest.TestCase):
     def test_one_delete(self):
         s_list = LinkedList()
         s_list.add_in_tail(Node(13))
-        s_list.delete(13, False)
+        s_list.print_all_nodes()
+        print()
+        s_list.delete(13, True)
+        s_list.print_all_nodes()
         # s_list.delete(13)
         self.assertEqual(s_list.len(), 0)
 
