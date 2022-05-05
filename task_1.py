@@ -90,15 +90,14 @@ class LinkedList:
 
     def insert(self, afterNode, newNode):
 
-        if afterNode is None:
-            newNode.next = self.head
-            self.head = newNode
-            return None
-
         if self.head is None:
             self.head = newNode
-            newNode.next = None
+            # newNode.next = None
             self.tail = newNode
+            return None
+        elif afterNode is None:
+            newNode.next = self.head
+            self.head = newNode
             return None
 
         node = self.head
