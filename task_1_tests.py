@@ -156,6 +156,19 @@ class MyTests(unittest.TestCase):
         s_list.print_all_nodes()
         self.assertTrue(s_list.len() < 100)
 
+    def test_insert_tail(self):
+        s_list = LinkedList()
+        n1 = Node(1)
+        n2 = Node(2)
+        n3 = Node(3)
+        s_list.add_in_tail(n1)
+        s_list.add_in_tail(n2)
+        s_list.add_in_tail(n3)
+        s_list.prnt()
+        s_list.insert(n3, Node('-'))
+        s_list.prnt()
+        self.assertTrue(s_list.len() == 4)
+
 
 if __name__ == '__main__':
     unittest.main()
