@@ -27,13 +27,16 @@ class MyTests(unittest.TestCase):
 
     def test_empty_insert_head(self):
         s_list = LinkedList()
-        s_list.insert(None, 5)
+        s_list.insert(None, Node(5))
         self.assertEqual(s_list.len(), 1)
 
     def test_empty_insert_body(self):
         s_list = LinkedList()
-        s_list.insert(0, 5)
-        self.assertEqual(s_list.len(), 0)
+        n1 = Node(0)
+        s_list.add_in_tail(n1)
+        s_list.insert(n1, Node(5))
+        s_list.prnt()
+        self.assertEqual(s_list.len(), 2)
 
     # seria of one element tests
     def test_one_delete(self):
@@ -65,14 +68,21 @@ class MyTests(unittest.TestCase):
     def test_one_insert_head(self):
         s_list = LinkedList()
         s_list.add_in_tail(Node(13))
-        s_list.insert(None, 5)
+        s_list.insert(None, Node(5))
+        s_list.prnt()
         self.assertEqual(s_list.len(), 2)
 
     def test_one_insert_body(self):
         s_list = LinkedList()
-        s_list.add_in_tail(Node(13))
-        s_list.insert(13, 5)
-        self.assertEqual(s_list.len(), 2)
+        n1 = Node(3)
+        n2 = Node(5)
+        n3 = Node(8)
+        s_list.add_in_tail(n1)
+        s_list.add_in_tail(n2)
+        s_list.add_in_tail(n3)
+        s_list.insert(n2, Node(13))
+        s_list.prnt()
+        self.assertEqual(s_list.len(), 4)
 
     # seria of 100 element tests
     def test_100_delete(self):
@@ -105,15 +115,25 @@ class MyTests(unittest.TestCase):
         s_list = LinkedList()
         for _ in range(100):
             s_list.add_in_tail(Node(random.randint(1, 20)))
-        s_list.insert(None, 5)
+        s_list.insert(None, Node(-1))
+        s_list.prnt()
         self.assertEqual(s_list.len(), 101)
 
     def test_100_insert_body(self):
         s_list = LinkedList()
-        for _ in range(100):
-            s_list.add_in_tail(Node(random.randint(1, 20)))
-        s_list.insert(13, 5)
-        self.assertTrue(s_list.len() > 100)
+        n1 = Node('ch')
+        # s_list.add_in_tail(n1)
+        for _ in range(20):
+            k = random.randint(1, 5)
+            if k == 5:
+                n2 = n1
+            else:
+                n2 = Node(k)
+            s_list.add_in_tail(n2)
+        s_list.prnt()
+        s_list.insert(n1, Node('-'))
+        s_list.prnt()
+        self.assertTrue(s_list.len() > 19)
 
     def test_summ(self):
         a = LinkedList()

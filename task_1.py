@@ -4,6 +4,8 @@ class Node:
         self.value = v
         self.next = None
 
+    def __str__(self):
+        return f"[{self.value}]->{self.next}"
 
 class LinkedList:
 
@@ -23,6 +25,10 @@ class LinkedList:
         while node is not None:
             print(node.value)
             node = node.next
+
+    def prnt(self):
+        node = self.head
+        print(node)
 
     def find(self, val):
         node = self.head
@@ -83,22 +89,25 @@ class LinkedList:
         return index
 
     def insert(self, afterNode, newNode):
-        node = self.head
-        if node is None:
+
+        if afterNode is None:
+            newNode.next = self.head
+            self.head = newNode
+            return None
+
+        if self.head is None:
             self.head = newNode
             newNode.next = None
             self.tail = newNode
             return None
 
-        # if afterNode is None:
-        #     self.head = newNode
-        #     newNode.next = node
-        #     return None
-
+        node = self.head
         node_next = node.next
+
         while node != afterNode:
             node = node.next
             node_next = node.next
+
         node.next = newNode
         newNode.next = node_next
         return None
