@@ -84,18 +84,20 @@ class LinkedList:
 
     def insert(self, afterNode, newNode):
         node = self.head
-        new = Node(newNode)
         if afterNode is None:
-            self.head = new
-            new.next = node
+            self.head = newNode
+            newNode.next = node
             return None
         else:
             if node is None:
+                self.head = newNode
+                newNode.next = None
+                self.tail = newNode
                 return None
 
         node_next = node.next
-        while node.value != afterNode:
+        while node != afterNode:
             node = node.next
             node_next = node.next
-        node.next = new
-        new.next = node_next
+        node.next = newNode
+        newNode.next = node_next
