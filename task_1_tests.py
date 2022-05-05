@@ -143,23 +143,18 @@ class MyTests(unittest.TestCase):
             b.add_in_tail(Node(_ + 10))
         self.assertEqual(sum_if_equal_length(a, b), [10, 12, 14, 16, 18])
 
-    # delerte all test
+    # delete all test
     def test_delete_all(self):
         s_list = LinkedList()
-        # s_list.add_in_tail(Node(1))
-        # for _ in range(3):
-        #     s_list.add_in_tail(Node(5))
         for _ in range(4):
             s_list.add_in_tail(Node(3))
         for _ in range(3):
             s_list.add_in_tail(Node(5))
-        # s_list.add_in_tail(Node(3))
         s_list.print_all_nodes()
         print()
         s_list.delete(5, False)
         s_list.print_all_nodes()
         self.assertTrue(s_list.len() < 100)
-
 
 
 if __name__ == '__main__':

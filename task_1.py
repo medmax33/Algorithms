@@ -7,6 +7,7 @@ class Node:
     def __str__(self):
         return f"[{self.value}]->{self.next}"
 
+
 class LinkedList:
 
     def __init__(self):
@@ -92,7 +93,6 @@ class LinkedList:
 
         if self.head is None:
             self.head = newNode
-            # newNode.next = None
             self.tail = newNode
             return None
         elif afterNode is None:
