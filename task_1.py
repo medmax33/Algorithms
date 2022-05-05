@@ -90,10 +90,10 @@ class LinkedList:
             self.tail = newNode
             return None
 
-        if afterNode is None:
-            self.head = newNode
-            newNode.next = node
-            return None
+        # if afterNode is None:
+        #     self.head = newNode
+        #     newNode.next = node
+        #     return None
 
         node_next = node.next
         while node != afterNode:
