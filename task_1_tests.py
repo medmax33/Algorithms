@@ -159,15 +159,19 @@ class MyTests(unittest.TestCase):
     def test_insert_tail(self):
         s_list = LinkedList()
         n1 = Node(1)
-        n2 = Node(2)
-        n3 = Node(3)
+        # n2 = Node(2)
+        # n3 = Node(3)
+        # n4 = Node(4)
+        # n5 = Node(5)
         s_list.add_in_tail(n1)
-        s_list.add_in_tail(n2)
-        s_list.add_in_tail(n3)
+        # s_list.add_in_tail(n2)
+        # s_list.add_in_tail(n3)
+        # s_list.add_in_tail(n4)
+        # s_list.add_in_tail(n5)
         s_list.prnt()
-        s_list.insert(n3, Node('-'))
+        s_list.insert(n1, Node('-'))
         s_list.prnt()
-        self.assertTrue(s_list.len() == 4)
+        self.assertTrue(s_list.len() == 1)
 
 
 if __name__ == '__main__':

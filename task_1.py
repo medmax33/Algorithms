@@ -101,17 +101,19 @@ class LinkedList:
             return None
 
         node = self.head
-        node_next = node.next
 
         while node != afterNode:
-            node = node.next
-            node_next = node.next
+            if node.next != None:
+                node = node.next
+            else:
+                return None
 
-        if node.next == self.tail:
+        if node == self.tail:
             node.next = newNode
             newNode.next = None
             self.tail = newNode
         else:
+            node_next = node.next
             node.next = newNode
             newNode.next = node_next
         return None
