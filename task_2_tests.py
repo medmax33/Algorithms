@@ -43,6 +43,12 @@ class MyTests(unittest.TestCase):
         s_list.prnt()
         self.assertEqual(s_list.len(), 2)
 
+    def test_empty_add_in_head(self):
+        s_list = LinkedList2()
+        s_list.add_in_head(Node(5))
+        s_list.prnt()
+        self.assertEqual(s_list.len(), 1)
+
     # seria of one element tests
     def test_one_delete(self):
         s_list = LinkedList2()
@@ -95,6 +101,14 @@ class MyTests(unittest.TestCase):
         s_list.insert(n3, Node(13))
         s_list.prnt()
         self.assertEqual(s_list.len(), 4)
+
+    def test_one_add_in_head(self):
+        s_list = LinkedList2()
+        n1 = Node(3)
+        s_list.add_in_tail(n1)
+        s_list.add_in_head(Node(5))
+        s_list.prnt()
+        self.assertEqual(s_list.len(), 1)
 
     # seria of 100 element tests
     def test_20_delete(self):
@@ -159,6 +173,15 @@ class MyTests(unittest.TestCase):
         s_list.insert(n5, Node('-'))
         s_list.prnt()
         self.assertTrue(s_list.len() > 19)
+
+    def test_20_add_in_head(self):
+        s_list = LinkedList2()
+        for _ in range(20):
+            s_list.add_in_tail(Node(random.randint(1, 20)))
+        s_list.prnt()
+        s_list.add_in_head(Node(-1))
+        s_list.prnt()
+        self.assertEqual(s_list.len(), 1)
 
     # delete all test
     def test_delete_all(self):
