@@ -172,7 +172,7 @@ class MyTests(unittest.TestCase):
         s_list.prnt()
         s_list.insert(n5, Node('-'))
         s_list.prnt()
-        self.assertTrue(s_list.len() > 19)
+        self.assertTrue(s_list.len() > 5)
 
     def test_20_add_in_head(self):
         s_list = LinkedList2()
@@ -181,7 +181,7 @@ class MyTests(unittest.TestCase):
         s_list.prnt()
         s_list.add_in_head(Node(-1))
         s_list.prnt()
-        self.assertEqual(s_list.len(), 1)
+        self.assertEqual(s_list.len(), 21)
 
     # delete all test
     def test_delete_all(self):
