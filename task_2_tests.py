@@ -32,6 +32,7 @@ class MyTests(unittest.TestCase):
     def test_empty_insert_head(self):
         s_list = LinkedList2()
         s_list.insert(None, Node(5))
+        s_list.prnt()
         self.assertEqual(s_list.len(), 1)
 
     def test_empty_insert_body(self):
@@ -77,8 +78,9 @@ class MyTests(unittest.TestCase):
 
     def test_one_insert_head(self):
         s_list = LinkedList2()
-        s_list.add_in_tail(Node(13))
-        s_list.insert(None, Node(5))
+        n = Node(13)
+        s_list.add_in_tail(n)
+        s_list.insert(n, Node(5))
         s_list.prnt()
         self.assertEqual(s_list.len(), 2)
 
@@ -90,7 +92,7 @@ class MyTests(unittest.TestCase):
         s_list.add_in_tail(n1)
         s_list.add_in_tail(n2)
         s_list.add_in_tail(n3)
-        s_list.insert(n2, Node(13))
+        s_list.insert(n3, Node(13))
         s_list.prnt()
         self.assertEqual(s_list.len(), 4)
 
@@ -133,7 +135,7 @@ class MyTests(unittest.TestCase):
             s_list.add_in_tail(Node(random.randint(1, 20)))
         self.assertEqual(s_list.len(), 100)
 
-    def test_100_insert_head(self):
+    def test_100_insert_tail(self):
         s_list = LinkedList2()
         for _ in range(100):
             s_list.add_in_tail(Node(random.randint(1, 20)))
@@ -141,19 +143,20 @@ class MyTests(unittest.TestCase):
         s_list.prnt()
         self.assertEqual(s_list.len(), 101)
 
-    def test_100_insert_body(self):
+    def test_5_insert_body(self):
         s_list = LinkedList2()
-        n1 = Node('ch')
-        # s_list.add_in_tail(n1)
-        for _ in range(20):
-            k = random.randint(1, 5)
-            if k == 5:
-                n2 = n1
-            else:
-                n2 = Node(k)
-            s_list.add_in_tail(n2)
+        n1 = Node(11)
+        n2 = Node(22)
+        n3 = Node(33)
+        n4 = Node(44)
+        n5 = Node(55)
+        s_list.add_in_tail(n1)
+        s_list.add_in_tail(n2)
+        s_list.add_in_tail(n3)
+        s_list.add_in_tail(n4)
+        s_list.add_in_tail(n5)
         s_list.prnt()
-        s_list.insert(n1, Node('-'))
+        s_list.insert(n5, Node('-'))
         s_list.prnt()
         self.assertTrue(s_list.len() > 19)
 
@@ -169,23 +172,6 @@ class MyTests(unittest.TestCase):
         s_list.delete(3, False)
         s_list.prnt()
         self.assertTrue(s_list.len() < 100)
-
-    def test_insert_tail(self):
-        s_list = LinkedList2()
-        n1 = Node(1)
-        # n2 = Node(2)
-        # n3 = Node(3)
-        # n4 = Node(4)
-        # n5 = Node(5)
-        s_list.add_in_tail(n1)
-        # s_list.add_in_tail(n2)
-        # s_list.add_in_tail(n3)
-        # s_list.add_in_tail(n4)
-        # s_list.add_in_tail(n5)
-        s_list.prnt()
-        s_list.insert(n1, Node('-'))
-        s_list.prnt()
-        self.assertTrue(s_list.len() == 1)
 
 
 if __name__ == '__main__':
