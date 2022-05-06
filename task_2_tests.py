@@ -48,7 +48,7 @@ class MyTests(unittest.TestCase):
         s_list.add_in_tail(Node(13))
         s_list.prnt()
         print()
-        s_list.delete(13, False)
+        s_list.delete(13, True)
         s_list.prnt()
         self.assertEqual(s_list.len(), 0)
 
@@ -95,12 +95,14 @@ class MyTests(unittest.TestCase):
         self.assertEqual(s_list.len(), 4)
 
     # seria of 100 element tests
-    def test_100_delete(self):
+    def test_20_delete(self):
         s_list = LinkedList2()
-        for _ in range(100):
-            s_list.add_in_tail(Node(random.randint(1, 20)))
+        for _ in range(20):
+            s_list.add_in_tail(Node(random.randint(1, 5)))
+        s_list.prnt()
         s_list.delete(1, False)
-        self.assertTrue(s_list.len() < 100)
+        s_list.prnt()
+        self.assertTrue(s_list.len() < 20)
 
     def test_100_clean(self):
         s_list = LinkedList2()
@@ -162,10 +164,10 @@ class MyTests(unittest.TestCase):
             s_list.add_in_tail(Node(3))
         for _ in range(3):
             s_list.add_in_tail(Node(5))
-        s_list.print_all_nodes()
+        s_list.prnt()
         print()
-        s_list.delete(5, False)
-        s_list.print_all_nodes()
+        s_list.delete(3, False)
+        s_list.prnt()
         self.assertTrue(s_list.len() < 100)
 
     def test_insert_tail(self):

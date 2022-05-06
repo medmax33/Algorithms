@@ -55,27 +55,27 @@ class LinkedList2:
                     node.prev = node.next = None
                     self.head = None
                     self.tail = None
+                    return None
                 elif node == self.head:
                     node_next = node.next
                     self.head = node_next
                     node.prev = node.next = None
                     node_next.prev = self.head
-                    node = node_next
                 elif node == self.tail:
                     node_prev = node.prev
                     self.tail = node_prev
                     node_prev.next = None
                     node.prev = node.next = None
-                    node = node_prev
+                    return None
                 else:
                     node_prev = node.prev
                     node_next = node.next
                     node_prev.next = node_next
                     node_next.prev = node_prev
                     node.prev = node.next = None
-                    node = node_next
                 if all is False:
                     break
+                node = node_next
             else:
                 node = node.next
 
