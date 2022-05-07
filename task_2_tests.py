@@ -115,7 +115,7 @@ class MyTests(unittest.TestCase):
     def test_20_delete(self):
         s_list = LinkedList2()
         for _ in range(20):
-            s_list.add_in_tail(Node(13))  #random.randint(1, 5)))
+            s_list.add_in_tail(Node(13))  # random.randint(1, 5)))
         # s_list.prnt()
         s_list.delete(13, True)
         # s_list.prnt()
