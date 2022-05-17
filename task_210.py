@@ -9,8 +9,8 @@ class Dummy(Node):
     def __init__(self, v=None):
         super().__init__(v)
 
-    def __bool__(self):
-        return False
+    # def __bool__(self):
+    #     return False
 
 
 class LinkedList2:
@@ -28,15 +28,15 @@ class LinkedList2:
         self.tail.prev = item
 
     def print_all_nodes(self):
-        node = self.head
+        node = self.head.next
         while node is not None:
-            if node:
+            if isinstance(node, Dummy) is not True:
                 print(node.value)
             node = node.next
         print()
 
     def delete(self, val, all=False):
-        node = self.head
+        node = self.head.next
         while node is not None:
             if node.value == val:
                 node.prev.next = node.next
@@ -62,7 +62,7 @@ class LinkedList2:
             newNode.next = self.tail
             return None
 
-        node = self.head
+        node = self.head.next
         while node is not None:
             if node == afterNode:
                 break
@@ -78,7 +78,7 @@ class LinkedList2:
         return None
 
     def find(self, val):
-        node = self.head
+        node = self.head.next
         while node is not None:
             if node.value == val:
                 return node
@@ -86,7 +86,7 @@ class LinkedList2:
         return None
 
     def find_all(self, val):
-        node = self.head
+        node = self.head.next
         find_all_array = []
         while node is not None:
             if node.value == val:
@@ -96,9 +96,9 @@ class LinkedList2:
 
     def len(self):
         index = 0
-        node = self.head
+        node = self.head.next
         while node is not None:
-            if node:
+            if isinstance(node, Dummy) is not True:
                 index += 1
             node = node.next
         return index

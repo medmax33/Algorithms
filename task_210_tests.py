@@ -75,6 +75,21 @@ class MyTests(unittest.TestCase):
         s_list.add_in_head(Node(74747474))
         s_list.print_all_nodes()
 
+    def test_isinstance(self):
+        s_list = LinkedList2()
+        n1 = Node(11)
+        n2 = Node(22)
+        n3 = Node(33)
+        s_list.add_in_tail(n1)
+        s_list.add_in_tail(n2)
+        s_list.add_in_tail(n3)
+        node = s_list.head
+        while node is not None:
+            print(isinstance(node, Dummy))
+            node = node.next
+        s_list.print_all_nodes()
+
+
 if __name__ == '__main__':
     unittest.main()
 
