@@ -1,5 +1,4 @@
 import unittest
-import random
 from task_4 import Stack
 
 
@@ -35,9 +34,6 @@ class MyTests(unittest.TestCase):
         self.assertEqual(stack.peek(), 5)
         stack.pop()
         self.assertEqual(stack.size(), 3)
-
-
-
 
 
 if __name__ == '__main__':
