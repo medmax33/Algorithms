@@ -12,14 +12,14 @@ class Stack:
             return self.stack.pop(0)
 
     def push(self, value):
-        self.stack.append(value)
+        self.stack.insert(0, value)
         return None
 
     def peek(self):
         if self.size() == 0:
             return None
         else:
-            return self.stack[-1]
+            return self.stack[0]
 
 
 def balanced(s: str) -> bool:
