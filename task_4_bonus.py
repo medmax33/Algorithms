@@ -36,6 +36,9 @@ def postfix(s: str) -> int:
         elif element == '=':
             return stack2.pop()
 
+        if stack2.size() > 2:
+            raise RuntimeError('В выражении подряд идут более двух цифр')
+
     if stack2.size() == 1:
         return stack2.pop()
 
