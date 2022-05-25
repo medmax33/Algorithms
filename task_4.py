@@ -25,23 +25,33 @@ class Stack:
 def balanced(s: str) -> bool:
     # make empty stack
     skobka = Stack()
+
     # append each symbol of s in stack
     for letter in s:
-        skobka.push(letter)
+        if letter == '(' or letter == ')':
+            skobka.push(letter)
+            continue
+        return False
+
+    # check if last symbol not )
+    if skobka.peek() != ')':
+        return False
 
     # count of open and close round bracket
-    pair = 0
+    balance = Stack()
     while skobka.size() > 0:
         letter = skobka.pop()
-        if letter == '(':
-            pair += 1
-        elif letter == ')':
-            pair -= 1
-        else:
-            return False
-        if pair < 0:
-            return False
-    if pair % 2 != 0:
+        if letter == ')':
+            balance.push(letter)
+            continue
+
+        if letter == '(' and balance.size() > 0:
+            balance.pop()
+            continue
+
         return False
-    else:
+
+    if balance.size() == 0:
         return True
+
+    return False

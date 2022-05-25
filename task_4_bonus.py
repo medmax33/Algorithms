@@ -21,18 +21,18 @@ def postfix(s: str) -> int:
         element = stack1.pop()
         if type(element) == int:
             stack2.push(element)
-        elif element == '+':
-            stack2.push(stack2.pop() + stack2.pop())
+            continue
+
+        a = stack2.pop()
+        b = stack2.pop()
+        if element == '+':
+            stack2.push(a + b)
         elif element == '*':
-            stack2.push(stack2.pop() * stack2.pop())
+            stack2.push(a * b)
         elif element == '-':
-            # we pop stack elements in reverse order
-            # first Вычитаемое second Уменьшаемое
-            stack2.push(-stack2.pop() + stack2.pop())
+            stack2.push(b - a)
         elif element == '/':
-            # we pop stack elements in reverse order
-            # first Делитель second Делимое
-            stack2.push((1 / stack2.pop()) * stack2.pop())
+            stack2.push(b / a)
         elif element == '=':
             return stack2.pop()
 
