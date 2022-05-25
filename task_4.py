@@ -23,35 +23,31 @@ class Stack:
 
 
 def balanced(s: str) -> bool:
+    # check if first symbol not (
+    if s[0] != '(':
+        return False
+
     # make empty stack
     skobka = Stack()
 
-    # append each symbol of s in stack
+    # push in stack if symbol is (,
+    # pop stack if symbol is )
     for letter in s:
-        if letter == '(' or letter == ')':
+        # if symbol neither ( not ) return False
+        if letter != '(' and letter != ')':
+            return False
+
+        if letter == '(':
             skobka.push(letter)
             continue
-        return False
 
-    # check if last symbol not )
-    if skobka.peek() != ')':
-        return False
-
-    # count of open and close round bracket
-    balance = Stack()
-    while skobka.size() > 0:
-        letter = skobka.pop()
-        if letter == ')':
-            balance.push(letter)
-            continue
-
-        if letter == '(' and balance.size() > 0:
-            balance.pop()
+        if letter == ')' and skobka.size() > 0:
+            skobka.pop()
             continue
 
         return False
 
-    if balance.size() == 0:
+    if skobka.size() == 0:
         return True
 
     return False

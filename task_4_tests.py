@@ -52,7 +52,7 @@ class MyTests(unittest.TestCase):
             print(stack.size(), '-', stack.pop())
 
     def test_Balanced(self):
-        self.assertEqual(balanced('(()((()())()))'), True)
+        self.assertEqual(balanced('((()())()(())))'), True)
 
 
 if __name__ == '__main__':
