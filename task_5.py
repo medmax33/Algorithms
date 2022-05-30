@@ -16,6 +16,6 @@ class Queue:
 
 
 def rotation(queue: list, n: int) -> list:
-    for _ in range (n):
+    for _ in range(n):
         queue.enqueue(queue.dequeue())
     return queue
