@@ -13,3 +13,9 @@ class Queue:
 
     def size(self):
         return len(self.queue)
+
+
+def rotation(queue: list, n: int) -> list:
+    for _ in range (n):
+        queue.enqueue(queue.dequeue())
+    return queue
