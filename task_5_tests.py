@@ -1,7 +1,6 @@
 import unittest
-# import random
 from task_5 import Queue, rotation
-from task_5_in_2stacks import Stack, Queue_stack
+from task_5_in_2stacks_v2 import Queue_stack
 
 
 class MyTests(unittest.TestCase):
@@ -21,11 +20,7 @@ class MyTests(unittest.TestCase):
         self.assertEqual(queue.size(), 10)
         queue = rotation(queue, 2)
         for i in range(10):
-        # self.assertEqual(queue.dequeue(), 5)
             print(queue.dequeue())
-
-        # for i in range(5):
-        #     self.assertEqual(queue.dequeue(), i)
 
     def test_insert_to_stack(self):
         queue = Queue_stack()
