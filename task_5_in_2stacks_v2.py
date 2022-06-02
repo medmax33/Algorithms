@@ -29,7 +29,6 @@ class Queue_stack:
 
     def enqueue(self, item):
         self.s1.push(item)
-        return None
 
     def dequeue(self):
         if self.s2.size() == 0:
