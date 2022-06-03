@@ -23,11 +23,12 @@ class MyTests(unittest.TestCase):
     def test_delete_True(self):
         order = OrderedList(True)
         order.add(2)
+        order.delete(2)
         order.add(3)
         order.add(8)
         order.add(7)
         order.delete(3)
-        self.assertEqual(order.get_all_val(), [2, 7, 8])
+        self.assertEqual(order.get_all_val(), [7, 8])
 
     def test_delete_False(self):
         order = OrderedList(False)
@@ -35,8 +36,8 @@ class MyTests(unittest.TestCase):
         order.add(3)
         order.add(8)
         order.add(7)
-        order.delete(7)
-        self.assertEqual(order.get_all_val(), [8, 3, 2])
+        order.delete(2)
+        self.assertEqual(order.get_all_val(), [8, 7, 3])
 
     def test_delete_None(self):
         order = OrderedList(False)

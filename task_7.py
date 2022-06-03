@@ -83,11 +83,32 @@ class OrderedList:
     def delete(self, val):
         node = self.head
         while node is not None:
-            if node.value == val:
-                node.prev.next = node.next
-                node.next.prev = node.prev
-                return None
-            node = node.next
+            if node.value != val:
+                node = node.next
+                continue
+
+            if node == self.head and node == self.tail:
+                self.head = None
+                self.tail = None
+                return
+            elif node == self.head:
+                self.head = node.next
+                node.next.prev = None
+                node.next = None
+                return
+            elif node == self.tail:
+                self.tail = node.prev
+                node.prev.next = None
+                node.prev = None
+                return
+
+            node.prev.next = node.next
+            node.next.prev = node.prev
+            node_next = node.next
+            node.next = node.prev = None
+            # node = node_next
+
+            return None
 
     def clean(self, asc):
         self.__ascending = asc
