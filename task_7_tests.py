@@ -7,18 +7,18 @@ class MyTests(unittest.TestCase):
     def test_add_True(self):
         order = OrderedList(True)
         order.add(2)
-        order.add(3)
-        order.add(8)
-        order.add(7)
-        self.assertEqual(order.get_all_val(), [2, 3, 7, 8])
+        order.add(1)
+        order.add(0)
+        order.add(-1)
+        self.assertEqual(order.get_all_val(), [-1, 0, 1, 2])
 
     def test_add_False(self):
         order = OrderedList(False)
-        order.add(2)
+        order.add(9)
         order.add(3)
         order.add(8)
         order.add(7)
-        self.assertEqual(order.get_all_val(), [8, 7, 3, 2])
+        self.assertEqual(order.get_all_val(), [9, 8, 7, 3])
 
     def test_delete_True(self):
         order = OrderedList(True)

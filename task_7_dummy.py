@@ -5,10 +5,17 @@ class Node:
         self.next = None
 
 
+class Dummy(Node):
+    def __init__(self, v=None):
+        super().__init__(v)
+
+
 class OrderedList:
     def __init__(self, asc):
-        self.head = None
-        self.tail = None
+        self.head = Dummy()
+        self.tail = Dummy()
+        self.head.next = self.tail
+        self.tail.prev = self.head
         self.__ascending = asc
 
     def compare(self, v1, v2):
@@ -25,52 +32,23 @@ class OrderedList:
 
     def add(self, value):
         # автоматическая вставка value в нужную позицию
-        # создаем новый узел
-        new = Node(value)
-
-        # если список пустой
-        if self.head is None:
-            self.head = new
-            self.tail = new
-            new.prev = None
-            new.next = None
-            return
-
-        # если список не пустой
-        node = self.head
-        k = 1 if self.__ascending else -1
+        node = self.head.next
         while node is not None:
-            # сравнение текущего значения узла с новым узлом
-            # с учетом признака упорядоченности
-
-            if self.compare(node.value, value) != k and node.next is None:
-                new.prev = node
-                new.next = None
-                node.next = new
-                self.tail = new
-                return
-
-            if self.compare(node.value, value) == k and node == self.head:
-                new.next = node
-                new.prev = None
-                node.prev = new
-                self.head = new
-                return
-
+            k = 1 if self.__ascending else -1
             if self.compare(node.value, value) != k:
                 node = node.next
                 continue
 
-            # добавление нового узла
-            new.next = node
-            new.prev = node.prev
-            node.prev.next = new
-            node.prev = new
-            return
+            node_new = Node(value)
+            node_new.prev = node.prev
+            node_new.next = node
+            node.prev.next = node_new
+            node.prev = node_new
+            return None
 
     def find(self, val):
         k = 1 if self.__ascending else -1
-        node = self.head
+        node = self.head.next
         while node is not None:
             if self.compare(node.value, val) == k:
                 return None
@@ -81,7 +59,7 @@ class OrderedList:
         return None
 
     def delete(self, val):
-        node = self.head
+        node = self.head.next
         while node is not None:
             if node.value == val:
                 node.prev.next = node.next
@@ -96,25 +74,28 @@ class OrderedList:
 
     def len(self):
         index = 0
-        node = self.head
+        node = self.head.next
         while node is not None:
-            index += 1
+            if isinstance(node, Dummy) is not True:
+                index += 1
             node = node.next
         return index
 
     def get_all(self):
         r = []
-        node = self.head
+        node = self.head.next
         while node is not None:
-            r.append(node)
+            if isinstance(node, Dummy) is not True:
+                r.append(node)
             node = node.next
         return r
 
     def get_all_val(self):
         r = []
-        node = self.head
+        node = self.head.next
         while node is not None:
-            r.append(node.value)
+            if isinstance(node, Dummy) is not True:
+                r.append(node.value)
             node = node.next
         return r
 
@@ -123,9 +104,10 @@ class OrderedList:
 
     # testing method
     def print_all_nodes(self):
-        node = self.head
+        node = self.head.next
         while node is not None:
-            print(node.value)
+            if isinstance(node, Dummy) is not True:
+                print(node.value)
             node = node.next
         print()
 
