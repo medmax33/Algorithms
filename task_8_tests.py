@@ -17,4 +17,10 @@ from task_8 import HashTable
 #     unittest.main()
 
 ha = HashTable(128, 5)
-print(ha.hash_fun('2;lakjndsakjdnskfakfjdsfsdaofjow'))
+star = 'lkjdlakjdlakjdlaladsjfoaicmewi7du73mdlsakjdasikdjlakdjlsaknmclksdjfiweuhfemdpOdkpewdjoewaimkdmjewoijdewaoijdapowkdpqOWKDPOIWQJDOIJEWkjkj'
+for i in range(len(star)):
+    print(i, ':', ha.hash_fun(star[:i]), ha.seek_slot(star[:i]))
+    if ha.seek_slot(star[:i]) is None:
+        break
+    ha.put(star[:i])
+print(ha.find('lkjdlakjdlakjdlaladsjfoaicmewi7du73mdlsakjdasikdjlakdjlsaknmclksdjfiweuhfemdpOdkpewdj'))
