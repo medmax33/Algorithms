@@ -40,6 +40,13 @@ class NativeDictionary:
     def put(self, key, value):
         # гарантированно записываем значение value по ключу key
         index = self.hash_fun(key)
+        if index is None:
+            for _ in range(self.size):
+                self.slots.append(None)
+                self.values.append(None)
+            self.size *= 2
+            index = self.hash_fun(key)
+
         self.slots[index] = key
         self.values[index] = value
 
