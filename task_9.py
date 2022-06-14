@@ -4,14 +4,32 @@ class NativeDictionary:
         self.slots = [None] * self.size
         self.values = [None] * self.size
 
-    def hash_fun(self, key):
+    def __str__(self):
+        it = []
+        ke = []
+        va = []
+        for i in range(self.size):
+            it.append(i)
+            ke.append(self.slots[i])
+            va.append(self.values[i])
+        return f"{it}->[{ke}]->{va}"
+
+    def hash_fun(self, key: str):
         # в качестве key поступают строки!
         # всегда возвращает корректный индекс слота
         summa = 0
-        for va in key:
-            summa += ord(va)
+        for letter in key:
+            summa += ord(letter)
 
-        return summa % self.size
+        index = summa % self.size
+        count = self.size
+
+        while count > 0:
+            if self.slots[index] is None:
+                return index
+            count -= 1
+            index = (index + 1) % self.size
+        return None
 
     def is_key(self, key):
         # возвращает True если ключ имеется, иначе False
@@ -21,7 +39,9 @@ class NativeDictionary:
 
     def put(self, key, value):
         # гарантированно записываем значение value по ключу key
-        pass
+        index = self.hash_fun(key)
+        self.slots[index] = key
+        self.values[index] = value
 
     def get(self, key):
         # возвращает value для key, или None если ключ не найден

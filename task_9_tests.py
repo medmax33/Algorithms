@@ -1,5 +1,5 @@
 import unittest
-from task_8 import HashTable
+from task_9 import NativeDictionary
 
 
 # class MyTests(unittest.TestCase):
@@ -16,11 +16,22 @@ from task_8 import HashTable
 # if __name__ == '__main__':
 #     unittest.main()
 
-ha = HashTable(128, 5)
-star = 'lkjdlakjdlakjdlaladsjfoaicmewi7du73mdlsakjdasikdjlakdjlsaknmclksdjfiweuhfemdpOdkpewdjoewaimkdmjewoijdewaoijdapowkdpqOWKDPOIWQJDOIJEWkjkj'
-for i in range(len(star)):
-    print(i, ':', ha.hash_fun(star[:i]), ha.seek_slot(star[:i]))
-    if ha.seek_slot(star[:i]) is None:
-        break
-    ha.put(star[:i])
-print(ha.find('lkjdlakjdlakjdlaladsjfoaicmewi7du73mdlsakjdasikdjlakdjlsaknmclksdjfiweuhfemdpOdkpewdj'))
+nd = NativeDictionary(13)
+keys = 'ljdlakjdalk'
+values = '01234567890'
+# for i in range(1, len(keys)):
+#     # print(i, ':', ha.hash_fun(star[:i]), ha.seek_slot(star[:i]))
+#     # if ha.seek_slot(star[:i]) is None:
+#     #     break
+#     ha.put(keys[:i], values[:i])
+#
+# for i in range(1, len(keys)):
+#     print(i, ':', keys[:i], ':', ha.get(keys[:i]))
+nd.put('123', 123)
+nd.put('123', 555)
+print(nd)
+print(nd.is_key('123'))
+print(nd.is_key('12'))
+
+print(nd.get('123'))
+print(nd.get('12'))
