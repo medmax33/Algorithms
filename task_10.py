@@ -3,9 +3,9 @@
 class PowerSet:
 
     # ваша реализация хранилища
-    def __init__(self, sz, stp: int):
+    def __init__(self, sz: int):
         self.sz = sz
-        self.step = stp
+        self.step = 1
         self.slots = [None] * self.sz
 
     def hash_fun(self, value: str) -> int:  #
@@ -72,7 +72,7 @@ class PowerSet:
 
     def intersection(self, set2):  #
         # пересечение текущего множества и set2
-        self.result_powerset = PowerSet(self.sz, self.step)
+        self.result_powerset = PowerSet(self.sz)
         for _ in range(self.sz):
             v = self.slots[_]
             if v is None:
@@ -83,7 +83,7 @@ class PowerSet:
 
     def union(self, set2):  #
         # объединение текущего множества и set2
-        self.result_powerset = PowerSet(self.sz, self.step)
+        self.result_powerset = PowerSet(self.sz)
         for _ in range(self.sz):
             self.result_powerset.put(self.slots[_])
         for _ in range(len(set2.slots)):
@@ -92,7 +92,7 @@ class PowerSet:
 
     def difference(self, set2):  #
         # разница текущего множества и set2
-        self.result_powerset = PowerSet(self.sz, self.step)
+        self.result_powerset = PowerSet(self.sz)
         for _ in range(self.sz):
             v = self.slots[_]
             if v is None:
