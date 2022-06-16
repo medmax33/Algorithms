@@ -84,13 +84,11 @@ class MyTests(unittest.TestCase):
     def test_time(self):
         start = int(time.time())
         set1 = PowerSet()
-        set2 = PowerSet()
-        for i in range(2000):
+        # set2 = PowerSet()
+        for i in range(20000):
             set1.put(str(random.randint(1, 20000)))
-            set2.put(str(random.randint(1, 20000)))
-        print(set1.difference(set2))
         finish = int(time.time())
-        self.assertTrue(finish - start < 2)
+        self.assertTrue(finish - start <= 2)
 
 
 if __name__ == '__main__':
