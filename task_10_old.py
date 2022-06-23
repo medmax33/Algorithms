@@ -4,8 +4,8 @@ class PowerSet:
 
     # ваша реализация хранилища
     def __init__(self):
-        self.sz = 19
-        self.step = 19
+        self.sz = 1000
+        self.step = 200
         self.slots = [None] * self.sz
 
     def hash_fun(self, value: str) -> int:  #
@@ -20,9 +20,10 @@ class PowerSet:
     def seek_slot(self, value: str):  #
         # находит индекс пустого слота для значения
         # если массив полный, увеличиваем в два раза
-        if self.sz == self.size() - 1:
+        if self.size() / self.sz > 0.5:
             self.slots = self.slots + [None] * self.sz
             self.sz *= 2
+            self.step *= 2
 
         # ищем ближайший к индексу хэш функции пустой слот
         index = self.hash_fun(value)

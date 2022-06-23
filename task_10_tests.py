@@ -1,6 +1,6 @@
 import unittest
 import random
-from task_10 import PowerSet
+from task_10_old import PowerSet
 import time
 
 
