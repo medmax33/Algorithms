@@ -5,7 +5,7 @@ class BloomFilter:
         # создаём битовый массив длиной f_len ...
         self.random_digit_1 = 17
         self.random_digit_2 = 223
-        self.bitarray = [0b0] * self.filter_len
+        self.bitarray = 0
 
     def hash1(self, str1):
         # 17
@@ -25,12 +25,12 @@ class BloomFilter:
 
     def add(self, str1):
         # добавляем строку str1 в фильтр
-        self.bitarray[self.hash1(str1)] = 0b1
-        self.bitarray[self.hash2(str1)] = 0b1
+        self.bitarray |= 0b1 << self.hash1(str1)
+        self.bitarray |= 0b1 << self.hash2(str1)
 
     def is_value(self, str1):
         # проверка, имеется ли строка str1 в фильтре
-        if self.bitarray[self.hash1(str1)] == 0b1 and \
-                self.bitarray[self.hash2(str1)] == 0b1:
+        if self.bitarray & (0b1 << self.hash1(str1)) and \
+                self.bitarray & (0b1 << self.hash2(str1)):
             return True
         return False
