@@ -36,6 +36,6 @@ class MyTests(unittest.TestCase):
             print(i, bloom.is_value(arr[i+1]))
             self.assertEqual(bloom.is_value(arr[i+1]), False)
 
-
+# new tetsts
 if __name__ == '__main__':
     unittest.main()
