@@ -5,11 +5,11 @@ class NativeDictionary:
         self.values = [None] * self.size
 
     def __str__(self):
-        it = []
+        self.it = []
         ke = []
         va = []
         for i in range(self.size):
-            it.append(i)
+            self.it.append(i)
             ke.append(self.slots[i])
             va.append(self.values[i])
         return f"{it}->[{ke}]->{va}"
